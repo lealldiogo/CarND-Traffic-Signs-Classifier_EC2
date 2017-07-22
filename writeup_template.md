@@ -14,11 +14,11 @@ The goals / steps of this project are the following:
 [image1]: ./examples/visualization.jpg "Visualization"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
-[image4]: ./examples/placeholder.png "Traffic Sign 1"
-[image5]: ./examples/placeholder.png "Traffic Sign 2"
-[image6]: ./examples/placeholder.png "Traffic Sign 3"
-[image7]: ./examples/placeholder.png "Traffic Sign 4"
-[image8]: ./examples/placeholder.png "Traffic Sign 5"
+[image4]: ./german_traffic_signs/60.jpg "Traffic Sign 1"
+[image5]: ./german_traffic_signs/noentry.jpg "Traffic Sign 2"
+[image6]: ./german_traffic_signs/priority.jpg "Traffic Sign 3"
+[image7]: ./german_traffic_signs/stop.jpg "Traffic Sign 4"
+[image8]: ./german_traffic_signs/right.jpg "Traffic Sign 5"
 
 ## Rubric Points
 Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.  
@@ -113,8 +113,7 @@ If a well known architecture was chosen:
 
 Here are five German traffic signs that I found on the web:
 
-![alt text][image4] ![alt text][image5] ![alt text][image6] 
-![alt text][image7] ![alt text][image8]
+<img src="./german_traffic_signs/60.jpg" width="96" height="96"> <img src="./german_traffic_signs/stop.jpg" width="96" height="96"> <img src="./german_traffic_signs/right.jpg" width="96" height="96"> <img src="./german_traffic_signs/noentry.jpg" width="96" height="96"> <img src="./german_traffic_signs/priority.jpg" width="96" height="96">
 
 The first image might be difficult to classify because ...
 
@@ -133,7 +132,7 @@ Here are the results of the prediction:
 
 The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
 
-#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability.
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
