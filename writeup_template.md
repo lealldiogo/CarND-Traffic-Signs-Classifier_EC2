@@ -8,12 +8,11 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-
-[//]: # (Image References)
-
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image0]: ./writeup_images/placa432.png "Visualization"
+[image1]: ./writeup_images/epochs13.png "Epochs"
+[image2]: ./writeup_images/epochs47.png "Epochs"
+[image3]: ./writeup_images/epochs810.png "Epochs"
+[results]: ./writeup_images/results.png "Final Results"
 [image4]: ./german_traffic_signs/60.jpg "Traffic Sign 1"
 [image5]: ./german_traffic_signs/noentry.jpg "Traffic Sign 2"
 [image6]: ./german_traffic_signs/priority.jpg "Traffic Sign 3"
@@ -44,7 +43,9 @@ I used the basic python methods summary statistics of the traffic signs data set
 
 #### 2. Include an exploratory visualization of the dataset.
 
-Here is an exploratory visualization of the data set. In this section I really just plotted the images to see what they were like. 
+Here is an exploratory visualization of the data set. In this section I really just plotted the images to see what they were like.
+
+<img src="./writeup_images/placa432.png" width="96" height="96">
 
 Not much exploration was done here actually. I preferred to save the images as JPG files and to explore each of the default image viewer in my machine. This helped me later when chosing which  images to download from the web.
 
@@ -85,7 +86,9 @@ My final model consisted of the following layers:
 
 #### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-To train the model, I used an .... adam optimizer
+To train the model, I used an Adam optimizer with its default learning rate, a batch size of 128 and 10 epochs which are the classic set of parameters from the LeNet architecture on which my model was based.
+
+I experimented with different batch sizes, number of epochs and also learning rates. But at the end, the best results were achieved with the parameters tuned similarly to the LeNet lab.
 
 #### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
@@ -96,13 +99,23 @@ My final model results were:
 
 I chose first tried the LeNet architecture on the model since I used it in another lab and was familiar with the model, and also because the model has proven your efficacy over similar data (letters from the alphabet).
 
-* What were some problems with the initial architecture? The LeNet architecture was able to achieve good results but not the required one. So I decided to change a the model just a bit
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to overfitting or underfitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+The LeNet architecture was able to achieve good results but not the required one. It was made to identify a smaller number of classes so I believe this is why it wasn't able to train well over 43 different traffic signs.
 
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+I decided to begin adding one more convolution layer and edit the number of feature maps in the others. The added convolution layer had 1x1 filter size and outputed 192 feature maps of depth. That led to have an output shape of 6912 on the flatten layer and because of that I added one more fully connected layer.
+
+I experimented with different activation functions but at the end, the best results were achieved using the RELu for all of the activation layers. I added two RELu activation layers: one after the dropout layer and another after the added fully connected layer. 
+
+With this configuration the model was not working very well. To discover what was happening, I started to print the accuracy of the training set together with the validation set in each epoch. I noticed that the testing accuracy was almost 100% while the validation set was just above 90%. That meant the model was overfitting.
+
+I then added a dropout layer to combat this overfitting. It worked! At the end the model trained very well, achieving an accuracy of 93.5% at the last epoch as shown below.
+
+![alt text][image1] ![alt text][image2] ![alt text][image3]
+
+The final results achieved were as shown below:
  
+![alt text][results]
+ 
+It is clear the model was able to generalize what it learned from the training set to the validation and testing sets, being able to get 92.5% on the test set.
 
 ### Test a Model on New Images
 
