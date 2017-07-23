@@ -8,7 +8,7 @@ The goals / steps of this project are the following:
 * Analyze the softmax probabilities of the new images
 * Summarize the results with a written report
 
-[image0]: ./writeup_images/placa432.png "Visualization"
+[image0]: ./writeup_images/placa432.jpg "Visualization"
 [image1]: ./writeup_images/epochs13.png "Epochs"
 [image2]: ./writeup_images/epochs47.png "Epochs"
 [image3]: ./writeup_images/epochs810.png "Epochs"
