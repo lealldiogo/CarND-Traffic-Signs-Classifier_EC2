@@ -45,7 +45,7 @@ I used the basic python methods summary statistics of the traffic signs data set
 
 Here is an exploratory visualization of the data set. In this section I really just plotted the images to see what they were like.
 
-<img src="./writeup_images/placa432.png" width="96" height="96">
+<img src="./writeup_images/placa432.jpg" width="96" height="96">
 
 Not much exploration was done here actually. I preferred to save the images as JPG files and to explore each of the default image viewer in my machine. This helped me later when chosing which  images to download from the web.
 
